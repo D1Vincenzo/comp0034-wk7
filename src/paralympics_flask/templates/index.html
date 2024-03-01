@@ -5,4 +5,22 @@
 
 {% block content %}
     <p>This is the {{ self.title() }} page.</p>
+
+    <div class="container">
+        {# For loop to iterate each event and add a row with the logo and linked text #}
+        {% for event in events %}
+            <div class="row">
+                {# first column has the logo. You can't nest Jinja variables so you need to set the filename then use it #}
+                <div class="col-2">
+                    {% set path = url_for('static', filename='img/' + event.year|string + '_' + event.host + '.jpg') %}
+                    <img src="{{ path }}" alt="Paralympic logo" height="50">
+                </div>
+                {# column has text with a hyperlink to the page #}
+                <div class="col-10"><a
+                        href="{{ url_for('get_event', event_id=event.id) }}">{{ event.host }} {{ event.year }}</a>
+                </div>
+            </div>
+        {% endfor %}
+    </div>
+
 {% endblock %}
