@@ -4,6 +4,10 @@
 |:------------------------------------|:---------------------------------|:-------------------------|:--------------|
 | [Activity 3](dash-3-scatter-map.md) | Scatter Mapbox, map with markers | pandas / SQLite database | Plotly Go     |
 
+Please create the database first by running the code in `paralympics_dash/create_db_dash.py` as this will create a
+version of the database that includes the latitude/longitude data. The database will be created within the
+paralympics_dash directory.
+
 You need to have the latitude and longitude of each event. These have been added to the SQLite database in a locations
 table.
 
